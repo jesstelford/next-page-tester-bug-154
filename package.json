@@ -14,9 +14,14 @@
     "jest": "^26.6.3",
     "next": "^10.0.7",
     "next-page-tester": "^0.20.0",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "scripts": {
+    "postinstall": "patch-package"
   },
   "jest": {
     "transform": {
