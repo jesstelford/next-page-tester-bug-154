@@ -1,6 +1,4 @@
-const { initTestHelpers, getPage } = require("next-page-tester");
-
-initTestHelpers();
+const { getPage } = require("next-page-tester");
 
 describe("failing tests", () => {
   it("renders <head> content correctly from serverRender()", async () => {
