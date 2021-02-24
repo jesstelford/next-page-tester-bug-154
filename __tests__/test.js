@@ -9,22 +9,23 @@ describe("failing tests", () => {
 
     serverRender();
 
-    const serverHtml = document.documentElement.outerHTML;
+    const serverHtml = document.querySelector("head").outerHTML;
     expect(serverHtml).toMatchInlineSnapshot(
-      `"<html><head><title>Server Side Title</title><meta name=\\"next-head-count\\" content=\\"0\\"><noscript data-n-css=\\"\\"></noscript></head><body><div id=\\"__next\\"><h1>Hello world</h1></div><script id=\\"__NEXT_DATA__\\" type=\\"application/json\\">{\\"page\\":\\"/index\\",\\"query\\":{},\\"buildId\\":\\"next-page-tester\\",\\"props\\":{}}</script></body></html>"`
+      `"<head><meta name=\\"viewport\\" content=\\"width=device-width\\"><meta charset=\\"utf-8\\"><link rel=\\"canonical\\" href=\\"http://example.com\\"><title>Server Side Title</title><meta name=\\"next-head-count\\" content=\\"4\\"><noscript data-n-css=\\"\\"></noscript></head>"`
     );
   });
 
   it("renders <head> content correctly from render()", async () => {
     const { render } = await getPage({
       route: "/",
+      useDocument: true,
     });
 
     render();
 
-    const serverHtml = document.documentElement.outerHTML;
+    const serverHtml = document.querySelector("head").outerHTML;
     expect(serverHtml).toMatchInlineSnapshot(
-      `"<html data-reactroot=\\"\\"><head><title>Client Side Title</title></head><body><div id=\\"__next\\"><h1>Hello world</h1></div></body></html>"`
+      `"<head><meta name=\\"viewport\\" content=\\"width=device-width\\"><meta charset=\\"utf-8\\"><link rel=\\"canonical\\" href=\\"http://example.com\\"><title>Client Side Title</title><meta name=\\"next-head-count\\" content=\\"4\\"><noscript data-n-css=\\"\\"></noscript></head>"`
     );
   });
 });

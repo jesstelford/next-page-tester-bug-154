@@ -11,6 +11,7 @@ const Home = () => {
   return (
     <Fragment>
       <Head>
+        <link rel="canonical" href="http://example.com" />
         <title>Server Side Title</title>
       </Head>
       {isClient && (
